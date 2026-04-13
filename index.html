@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <title>Намайг уучлаарай</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0d0d0f; /* matte charcoal */
+      color: #dcdcdc;
+      font-family: "Inter", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 120px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Soft grain overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      background: url('https://grainy-gradients.vercel.app/noise.svg');
+      opacity: 0.08;
+      mix-blend-mode: overlay;
+    }
+
+    h1 {
+      font-weight: 300;
+      font-size: 42px;
+      opacity: 0.9;
+      letter-spacing: 1.2px;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 0 12px rgba(255,255,255,0.08);
+    }
+
+    .sub {
+      font-size: 16px;
+      opacity: 0.45;
+      margin-bottom: 60px;
+      text-align: center;
+      max-width: 420px;
+      line-height: 1.6;
+    }
+
+    .list {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-bottom: 120px;
+    }
+
+    .line {
+      text-align: center;
+      font-size: 18px;
+      opacity: 0;
+      animation: fadeIn 2.5s ease forwards;
+      color: #b8b8b8;
+      text-shadow: 0 0 6px rgba(255,255,255,0.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 0.45; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Уучлаарай… 😔</h1>
+
+  <div class="sub">
+    Энэ вебсайт хаагдсан.
+  </div>
+
+  <div class="list">
+    <div class="line">😔</div>
+  </div>
+
+  <script>
+    // stagger animation
+    document.querySelectorAll('.line').forEach((el, i) => {
+      el.style.animationDelay = (i * 0.3) + "s";
+    });
+  </script>
+
+</body>
+</html>
